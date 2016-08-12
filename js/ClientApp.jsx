@@ -1,6 +1,5 @@
 const React = require('react')
 const ReactDOM = require('react-dom')
-const MyTitle = require('./MyTitle')
 
 // const MyFirstComponent = function () {
 //   return (
@@ -14,13 +13,14 @@ const MyTitle = require('./MyTitle')
 //   )
 // }
 
-const MyFirstComponent = () => (
-  <div>
-    <MyTitle title='whatever' color='rebeccapurple' />
-    <MyTitle title='LOL' color='papayawhip' />
-    <MyTitle title='OMG' color='mediumaquamarine' />
-    <MyTitle title='HelloWorld' color='peru' />
-    <MyTitle title='Chicago' color='#f06d06' />
+const App = () => (
+  <div className='app-container'>
+    <div className='home-info'>
+      <h1 className='title'>svideo</h1>
+      <input className='search' type='text' placeholder='Search' />
+      <button className='browser-all'> or Browse All</button>
+    </div>
   </div>
 )
-ReactDOM.render(<MyFirstComponent />, document.getElementById('app'))
+
+ReactDOM.render(<App />, document.getElementById('app'))
