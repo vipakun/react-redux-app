@@ -6,7 +6,7 @@ const data = require('../public/data.json')
 const Search = React.createClass({
   getInitialState () {
     return {
-      searchTerm: 'This is my search term'
+      searchTerm: ''
     }
   },
   handleSearchTermEvent (event) {
@@ -16,15 +16,17 @@ const Search = React.createClass({
     return (
       <div className='container'>
         <header className='header'>
-          <h1 className='brand'>{this.state.searchTerm}</h1>
+          <h1 className='brand'>svideo</h1>
           <input value={this.state.searchTerm}
             className='search-input' type='text'
             placeholder='Search'
             onChange={this.handleSearchTermEvent} />
         </header>
         <div className='shows'>
-          {data.shows.map((show) => (
-            <ShowCard {...show} key={show.imdbID} />
+          {data.shows
+            .filter((show) => `${show.title} ${show.description}`.toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) >= 0)
+            .map((show) => (
+              <ShowCard {...show} key={show.imdbID} />
           ))}
         </div>
       </div>
@@ -34,6 +36,10 @@ const Search = React.createClass({
 
 // Method #2
 // class Search extends React.Component {
+//   constructor(props) {
+//    super(props)
+//    this.handleSearchTermEvent = this.handleSearchTermEvent.bind(this)  => bind in pure function
+//   }
 //   render () {
 //     return (
 //       <div className='container'>
