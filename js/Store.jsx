@@ -18,7 +18,7 @@ const rootReducer = (state = initialState, action) => {
 
 const reduceSearchTerm = (state, action) => {
   const newState = {}
-  Object.assign(newState, state, {setSearchTerm: action.value})
+  Object.assign(newState, state, {searchTerm: action.value})
   return newState
 }
 
@@ -28,14 +28,14 @@ const mapStateToProps = (state) => {
   return {searchTerm: state.searchTerm}
 }
 
-const mapDispathToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    setSearchTerm (searchTerm) {
+    setSearchTerm: (searchTerm) => {
       dispatch({type: SET_SEARCH_TERM, value: searchTerm})
     }
   }
 }
 
-const connector = reactRedux.connect(mapStateToProps, mapDispathToProps)
+const connector = reactRedux.connect(mapStateToProps, mapDispatchToProps)
 
 module.exports = { connector, store }
