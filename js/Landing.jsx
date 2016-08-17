@@ -19,7 +19,7 @@ class Landing extends React.Component {
   render () {
     return (
       <div className='home-info'>
-        <h1 className='title'>svideo</h1>
+        <h1 className='title'>svideos</h1>
         <form onSubmit={this.gotoSearch}>
           <input value={this.props.searchTerm} onChange={this.handleSearchTermEvent} className='search' type='text' placeholder='Search' />
         </form>
